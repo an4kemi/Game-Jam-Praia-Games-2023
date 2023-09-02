@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameTime : MonoBehaviour
 {
+    public float DreamRadius => _dreamRadius;
+    private float _dreamRadius;
     [SerializeField] private float _maxTime;
     [SerializeField] private float _time;
     
@@ -32,16 +34,16 @@ public class GameTime : MonoBehaviour
         if (_time >= 0) _time -= Time.deltaTime;
         
         var timeLeft = _time / _maxTime;
-        var radius = Mathf.Lerp(_radiusMin, _radiusMax, timeLeft);
+        _dreamRadius = Mathf.Lerp(_radiusMin, _radiusMax, timeLeft);
         // var ratio = Mathf.Abs(Mathf.Sin(Time.time * _rationSpeed)) / _rationIntensity;
         foreach (var material in _materials)
         {
-            material.SetFloat("_Radius", radius);
+            material.SetFloat("_Radius", _dreamRadius);
         }
         
         foreach (var foliage in _foliages)
         {
-            foliage.SetColor("_TopColor", Color.Lerp(_nightmareColor, _dreamColor, radius * .5f));
+            foliage.SetColor("_TopColor", Color.Lerp(_nightmareColor, _dreamColor, _dreamRadius * .5f));
         }
     }
 }
