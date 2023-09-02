@@ -1,5 +1,6 @@
 using UnityEngine;
- 
+using UnityEngine.Serialization;
+
 public class SetShaderValues : MonoBehaviour
 {
     MaterialPropertyBlock props;
@@ -20,6 +21,7 @@ public class SetShaderValues : MonoBehaviour
     float minRangeRandomOffset = -3f;
     [SerializeField]
     float maxRangeRandomOffset = 3f;
+
  
     [SerializeField]
     MeshRenderer[] objects;

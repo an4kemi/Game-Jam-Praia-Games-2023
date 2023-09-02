@@ -8,13 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PT_Grass_Mat_Grow
-  m_Shader: {fileID: 4800000, guid: 919d3be5d7f144308df352f40750698f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 77e1a76a38ecd5a46a270afb12894dd5, type: 3}
   m_ValidKeywords:
-  - _STYLE_SWAPTEXTURES
-  m_InvalidKeywords:
-  - _ALPHAPREMULTIPLY_ON
   - _CUSTOMWIND_ON
   - _TRANSLUCENCYONOFF_ON
+  m_InvalidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _STYLE_SWAPTEXTURES
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -132,6 +132,7 @@ Material:
     - _TransShadow: 0.9
     - _Translucency: 1
     - _UVSec: 0
+    - _WINDMASKONOFF: 0
     - _WindDensity: 1
     - _WindMovement: 1
     - _WindStrength: 0.5
@@ -145,5 +146,5 @@ Material:
     - _DisLineColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 1, g: 0, b: 0, a: 1}
-    - _TopColor: {r: 0, g: 0.2178235, b: 1, a: 1}
+    - _TopColor: {r: 0.106034495, g: 0.4056604, b: 0, a: 1}
   m_BuildTextureStacks: []

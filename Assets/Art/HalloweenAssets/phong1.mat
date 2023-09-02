@@ -7,14 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PT_Fruit_Tree_Opaque_mat_Appear
-  m_Shader: {fileID: 4800000, guid: 38b512ffb352c7e42a44eda31d8f0f89, type: 3}
-  m_ValidKeywords:
-  - _STYLE_APPEAR
+  m_Name: phong1
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
   m_InvalidKeywords:
-  - _CUSTOMWIND_ON
+  - _STYLE_SWAPTEXTURES
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -22,10 +21,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseTexture:
-        m_Texture: {fileID: 2800000, guid: 5733ec0c27e7c9d41a230d27ca7b85d4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5733ec0c27e7c9d41a230d27ca7b85d4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 909f195e57604b443b692be62a4e8ca0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -67,10 +62,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondTex:
-        m_Texture: {fileID: 2800000, guid: 5733ec0c27e7c9d41a230d27ca7b85d4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -80,19 +71,14 @@ Material:
     - _AngleZ: 10
     - _Bobbing: 1
     - _BumpScale: 1
-    - _CUSTOMCOLORSTINTING: 0
-    - _CUSTOMWIND: 1
-    - _CUSTOMWIND1: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DisAmount: 0.0001
-    - _DisLineWidth: 0.003
+    - _DisLineWidth: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.4472136
     - _GlossyReflections: 1
-    - _Gradient: 1
-    - _GradientPower: 1
     - _Metallic: 0
     - _Mode: 0
     - _NScale: 1
@@ -100,32 +86,18 @@ Material:
     - _Offset: 1
     - _Parallax: 0.02
     - _Radius: 0
-    - _SNOWONOFF: 0
     - _ScrollSpeed: 10
-    - _Smoothness: 0.384
     - _SmoothnessTextureChannel: 0
-    - _SnowAmount: 1
-    - _SnowCoverage: 0.45
-    - _SnowFade: 0.83
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Style: 1
+    - _Style: 0
     - _UVSec: 0
-    - _WINDMASKONOFF: 0
-    - _WindDensity: 0.2
-    - _WindDensity1: 0.2
-    - _WindMovement: 0.5
-    - _WindMovement1: 0.5
-    - _WindStrength: 0.3
-    - _WindStrength1: 0.3
     - _X_ON: 0
     - _ZWrite: 1
-    - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.043137256, g: 0.24313726, b: 1, a: 1}
+    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
-    - _DisLineColor: {r: 0.9951887, g: 1, b: 0, a: 1}
+    - _DisLineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmisColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GroundColor: {r: 0.08490568, g: 0.05234205, b: 0.04846032, a: 1}
-    - _TopColor: {r: 0.4811321, g: 0.4036026, b: 0.2382966, a: 1}
   m_BuildTextureStacks: []
