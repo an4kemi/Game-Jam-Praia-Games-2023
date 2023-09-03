@@ -14,6 +14,11 @@ public class Enemy : MonoBehaviour
     private readonly int ANIMATOR_IS_MOVING = Animator.StringToHash("IsMoving");
     private readonly int ANIMATOR_TRIGGER_DEATH = Animator.StringToHash("Death");
 
+    [Header("Slope Alignment")]
+    public LayerMask _groundLayerMask;
+    public Transform model;
+    public float alignmentSpeed;
+    
     private void Start()
     {
         _currentDelay = GameConfig.AI_CHASE_UPDATE_DELAY;
@@ -23,7 +28,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetBool(ANIMATOR_IS_MOVING, IsMoving());
+        var isMoving = IsMoving();
+        _animator.SetBool(ANIMATOR_IS_MOVING, isMoving);
+        if (isMoving) AlignToGround();
         if (_currentDelay > 0)
         {
             _currentDelay -= Time.deltaTime;
@@ -39,6 +46,16 @@ public class Enemy : MonoBehaviour
         
 
         _currentDelay = GameConfig.AI_CHASE_UPDATE_DELAY;
+    }
+    
+    void AlignToGround()
+    {
+        var ray = new Ray(transform.position + Vector3.up, Vector3.down);
+        if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, _groundLayerMask)) return;
+        var newRotation = Quaternion.FromToRotation(model.up, hit.normal) * model.rotation;
+        model.position = hit.point;
+        model.rotation = Quaternion.Lerp(model.rotation, newRotation, alignmentSpeed * Time.deltaTime);
+
     }
 
     private bool IsMoving()
