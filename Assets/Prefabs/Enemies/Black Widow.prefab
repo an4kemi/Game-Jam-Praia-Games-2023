@@ -3513,13 +3513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c2f16a7a935aa4f883dde11c35cd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 1381550012}
+  agent: {fileID: 1381550012}
+  setting: {fileID: 11400000, guid: 2e6bfeaaf132114468cbfc6f99cc0a6c, type: 2}
   _animator: {fileID: 5981750752071427941}
-  MaxHealth: 100
-  CurrentHealth: 0
-  Damage: 0
-  PunchScale: {x: 0, y: 0, z: -0.25}
-  PunchDuration: 0.35
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 65
@@ -3572,9 +3568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aafeed2ad30204418aedc72f7c68d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _setting: {fileID: 11400000, guid: 2e6bfeaaf132114468cbfc6f99cc0a6c, type: 2}
   _agent: {fileID: 1381550012}
-  normalSpeed: 3
-  visibleSpeedMultiplier: 2
 --- !u!1 &8756870369409294498
 GameObject:
   m_ObjectHideFlags: 0

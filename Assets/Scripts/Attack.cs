@@ -34,7 +34,6 @@ public class Attack : MonoBehaviour
         View.DOLocalRotate(RotateTo, RotateSpeed).SetId(WEAPON_SWING_ID).OnComplete(() =>
         {
             TryAttack();
-            Debug.Log("Attack!");
             View.DOLocalRotate(RotateFrom, RotateSpeed * .5f).SetId(WEAPON_SWING_ID).OnComplete(() =>
             {
                 IsAttacking = false;

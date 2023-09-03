@@ -89,6 +89,7 @@ Shader "Toon/Lit Distance Rotated"
         struct Input
         {
             float2 uv_MainTex : TEXCOORD0;
+            float2 uv_SecondTex : TEXCOORD1;
             float3 worldPos; // built in value to use the world space position
             float3 worldNormal; // built in value for world normal
         };
@@ -128,7 +129,7 @@ Shader "Toon/Lit Distance Rotated"
         void surf(Input IN, inout SurfaceOutput o)
         {
             half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-            half4 c2 = tex2D(_SecondTex, IN.uv_MainTex) * _Color2;
+            half4 c2 = tex2D(_SecondTex, IN.uv_SecondTex) * _Color2;
 
             float speed = _Time.x * _ScrollSpeed;
 
