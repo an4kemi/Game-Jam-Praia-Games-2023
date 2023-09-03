@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 135756641613574993}
   - component: {fileID: 135756641613574994}
   - component: {fileID: 5393215579111688473}
+  - component: {fileID: 1292865166172702532}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -779,7 +780,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8616685848737228372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddb5f056d0fa9684e8f46e3a4003c1fc, type: 3}
   m_Name: 
@@ -826,6 +827,22 @@ MonoBehaviour:
   _nightmareColor: {r: 0.8584906, g: 0, b: 0, a: 1}
   _bgDreamColor: {r: 0.24207903, g: 0.38030627, b: 0.6037736, a: 1}
   _bgNightmareColor: {r: 0.039215688, g: 0.105882354, b: 0.21568628, a: 1}
+--- !u!114 &1292865166172702532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5479b10f35a3da4caa5d2399e28607e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _distance: 1.25
 --- !u!1001 &5393215578640279882
 PrefabInstance:
   m_ObjectHideFlags: 0
