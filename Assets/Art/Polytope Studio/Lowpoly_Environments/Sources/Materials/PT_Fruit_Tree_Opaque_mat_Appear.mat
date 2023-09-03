@@ -99,7 +99,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 1
     - _Parallax: 0.02
-    - _Radius: 3
+    - _Radius: 0
     - _SNOWONOFF: 0
     - _ScrollSpeed: 10
     - _Smoothness: 0.384

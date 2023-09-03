@@ -6,7 +6,7 @@ public class DreamCollisionCheck : MonoBehaviour
     [SerializeField] private LayerMask _nightmareLayermask;
     [SerializeField] private LayerMask _dreamLayermask;
     [SerializeField] private Transform _target;
-    
+
     [SerializeField] int _maxColliders = 20;
     private Collider[] _hitColliders;
 
@@ -29,14 +29,23 @@ public class DreamCollisionCheck : MonoBehaviour
         for (int i = 0; i < numColliders; i++)
         {
             var other = _hitColliders[i];
-            if (!IsColliderFullyInsideSphere(other, position, radius)) continue;
-            if (other.TryGetComponent<CollisionObject>(out var component))
+            if (!IsColliderFullyInsideSphere(other, position, radius))
             {
-                component.SetCollisionActive(setActive);
+                continue;
+            }
+
+            if (other.TryGetComponent<CollisionObject>(out var collision))
+            {
+                collision.SetCollisionActive(setActive);
+            }
+
+            if (other.TryGetComponent<MeshActivationObject>(out var activation))
+            {
+                activation.SetActive(setActive);
             }
         }
     }
-    
+
     bool IsColliderFullyInsideSphere(Collider collider, Vector3 position, float radius)
     {
         var bounds = collider.bounds;
