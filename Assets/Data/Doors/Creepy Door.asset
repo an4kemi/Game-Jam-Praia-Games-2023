@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f07849bbe7c488a91bedcc2a5c3fec8, type: 3}
   m_Name: Creepy Door
   m_EditorClassIdentifier: 
+  Material: {fileID: 2100000, guid: e91b1d3597800b9469c955b74838c0c9, type: 2}
   OpenSpeed: 0
   CloseSpeed: 0
   OpenEase: 0

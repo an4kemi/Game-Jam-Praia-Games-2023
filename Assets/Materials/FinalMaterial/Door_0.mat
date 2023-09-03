@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door_02_Blue_CHANGE
+  m_Name: Door_0
   m_Shader: {fileID: 4800000, guid: 38b512ffb352c7e42a44eda31d8f0f89, type: 3}
   m_ValidKeywords:
   - _STYLE_SWAPTEXTURES
@@ -42,8 +42,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 89621c6180e8c7645b57aba33019cd45, type: 3}
-        m_Scale: {x: -1, y: 1}
+        m_Texture: {fileID: 2800000, guid: aba96885633a9cb49b24d1593fb62ab2, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -85,7 +85,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 1
     - _Parallax: 0.02
-    - _Radius: 8.04805
+    - _Radius: 0
     - _ScrollSpeed: 20
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -95,7 +95,7 @@ Material:
     - _X_ON: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.3426486, g: 0.432787, b: 0.9433962, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _DisLineColor: {r: 1, g: 0.9058824, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

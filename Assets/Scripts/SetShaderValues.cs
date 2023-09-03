@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SetShaderValues : MonoBehaviour
 {
@@ -23,23 +22,27 @@ public class SetShaderValues : MonoBehaviour
     float maxRangeRandomOffset = 3f;
 
  
-    [SerializeField]
     MeshRenderer[] objects;
     float[] values;
     float[] offsets;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         props = new MaterialPropertyBlock();
+        var movingMesh = FindObjectsOfType<MovingMesh>(true);
+        objects = new MeshRenderer[movingMesh.Length];
+        for (var i = 0; i < movingMesh.Length; i++)
+        {
+            objects[i] = movingMesh[i].MeshRenderer;
+        }
         values = new float[objects.Length];
         offsets = new float[objects.Length];
+
         SetRandomOffset();
         MeshBounds(); // hack to stop culling because the object is so far from its origin
     }
  
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var targetPosition = target.position;
         Shader.SetGlobalVector(shaderID, targetPosition); // set position to follow
