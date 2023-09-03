@@ -27,11 +27,6 @@ public class GameTime : MonoBehaviour
     [SerializeField] private Color _bgDreamColor;
     [SerializeField] private Color _bgNightmareColor;
 
-    private void Start()
-    {
-        _time = _maxTime;
-    }
-
     private void Update()
     {
         if (_time >= 0) _time -= Time.deltaTime;
@@ -50,5 +45,10 @@ public class GameTime : MonoBehaviour
         }
         
         _camera.backgroundColor = Color.Lerp(_bgNightmareColor, _bgDreamColor, timeLeft);
+    }
+
+    public void AddRadius(float value)
+    {
+        _time = Mathf.Min(_time + value, _maxTime);
     }
 }
