@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameTime : MonoBehaviour
@@ -23,9 +24,14 @@ public class GameTime : MonoBehaviour
     [SerializeField] private Color _nightmareColor;
 
     [Header("Skybox")] 
-    [SerializeField] private Camera _camera;
+    private Camera _camera;
     [SerializeField] private Color _bgDreamColor;
     [SerializeField] private Color _bgNightmareColor;
+
+    private void Awake()
+    {
+        _camera = Camera.main;
+    }
 
     private void Update()
     {
