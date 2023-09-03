@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 135756641613574987}
   - component: {fileID: 135756641613574993}
   - component: {fileID: 135756641613574994}
+  - component: {fileID: 5393215579111688473}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -720,14 +721,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16c89412b16470429743c522d540f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameTime: {fileID: 0}
+  _gameTime: {fileID: 5393215579111688473}
   _nightmareLayermask:
     serializedVersion: 2
     m_Bits: 64
   _dreamLayermask:
     serializedVersion: 2
     m_Bits: 128
-  _target: {fileID: 1178389905}
+  _target: {fileID: 5393215578589016641}
   _maxColliders: 10
 --- !u!114 &135756641613574987
 MonoBehaviour:
@@ -753,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a57e6c3ec559214ea408565b2f110ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: {fileID: 0}
+  gameTime: {fileID: 5393215579111688473}
   cap: {fileID: 7982192743308046086}
   bottle: {fileID: 5051320447275587264}
   liquid: {fileID: 1216635532}
@@ -788,11 +789,44 @@ MonoBehaviour:
   RotateSpeed: 0.5
   RotateToEase: 26
   RotateBackEase: 27
-  AttackRadius: 2
+  AttackRadius: 1.5
   AttackRange: 2
   DamageLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5393215579111688473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b757ca312659fc54395ce63b7752158f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxTime: 60
+  _time: 0
+  _materials:
+  - {fileID: 2100000, guid: dbf898c9f9c4a2d46aa6336e23caeb61, type: 2}
+  - {fileID: 2100000, guid: 7ab977a21c92388468ee65ad1c0e5a78, type: 2}
+  - {fileID: 2100000, guid: 3922c043c1c52cb47a7b1bfed562a4b6, type: 2}
+  - {fileID: 2100000, guid: 89ec95f7975886c40bbd2fc310bf631f, type: 2}
+  - {fileID: 2100000, guid: 69fb80ea9add4664a839fc4ac2ba6e21, type: 2}
+  - {fileID: 2100000, guid: f1440c45c83e1c24cadad18a818f6335, type: 2}
+  _radiusMin: 0
+  _radiusMax: 15
+  _rationSpeed: 4
+  _rationIntensity: 266
+  _foliages:
+  - {fileID: 2100000, guid: 0a1f44318dd467a45bfef81ad0e8855a, type: 2}
+  - {fileID: 2100000, guid: 066ded06e6a8eb240893ea7b8efb66b4, type: 2}
+  _dreamColor: {r: 0.19122791, g: 1, b: 0, a: 1}
+  _nightmareColor: {r: 0.8584906, g: 0, b: 0, a: 1}
+  _camera: {fileID: 0}
+  _bgDreamColor: {r: 0.24207903, g: 0.38030627, b: 0.6037736, a: 1}
+  _bgNightmareColor: {r: 0.039215688, g: 0.105882354, b: 0.21568628, a: 1}
 --- !u!1001 &5393215578640279882
 PrefabInstance:
   m_ObjectHideFlags: 0

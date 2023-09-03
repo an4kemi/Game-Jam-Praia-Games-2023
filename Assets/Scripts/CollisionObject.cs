@@ -12,6 +12,7 @@ public class CollisionObject : MonoBehaviour
     private void OnValidate()
     {
         if (_collider == null) _collider = GetComponent<Collider>();
+        if (gameObject.layer == LayerMask.NameToLayer("Dream")) _collider.isTrigger = true;
     }
 
     // move to one place
