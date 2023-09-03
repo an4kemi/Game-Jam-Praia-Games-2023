@@ -3499,7 +3499,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 1
   m_Center: {x: 0, y: 0.62, z: 0}
 --- !u!114 &1381550011
 MonoBehaviour:
@@ -3515,6 +3515,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 1381550012}
   _animator: {fileID: 5981750752071427941}
+  MaxHealth: 100
+  CurrentHealth: 0
+  Damage: 0
+  PunchScale: {x: 0, y: 0, z: -0.25}
+  PunchDuration: 0.35
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 65

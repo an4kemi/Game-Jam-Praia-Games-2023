@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Animator _animator;
+
+    [Header("Health")]
+    public int MaxHealth;
+    public int CurrentHealth;
+    public int Damage;
+
+    [Header("Animation")] 
+    public Vector3 PunchScale;
+    public float PunchDuration;
     
     private GameTime _gameTime;
     private Transform _player;
@@ -21,9 +31,11 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
-        _currentDelay = GameConfig.AI_CHASE_UPDATE_DELAY;
+        _currentDelay = GameConfig.AI_CHASE_UPDATE_DELAY_MIN;
         _gameTime = FindObjectOfType<GameTime>();
         _player = FindObjectOfType<Player>().transform;
+
+        CurrentHealth = MaxHealth;
     }
 
     private void Update()
@@ -36,19 +48,36 @@ public class Enemy : MonoBehaviour
             _currentDelay -= Time.deltaTime;
             return;
         }
+        _currentDelay = Random.Range(GameConfig.AI_CHASE_UPDATE_DELAY_MIN, GameConfig.AI_CHASE_UPDATE_DELAY_MAX);
         
+        
+        var dreamRadius = _gameTime.DreamRadius;
+        if (dreamRadius > GameConfig.AI_CHASE_DREAM_RADIUS_IGNORE)
+        {
+            
+            return;
+        }
         var distanceToPlayer = Vector3.Distance(_player.position, transform.position);
-        Debug.Log($"{distanceToPlayer} > {_gameTime.DreamRadius}");
-        if (distanceToPlayer > _gameTime.DreamRadius)
+        if (distanceToPlayer > dreamRadius)
         {
             _agent.destination = _player.position;
         }
         
 
-        _currentDelay = GameConfig.AI_CHASE_UPDATE_DELAY;
     }
     
-    void AlignToGround()
+    private Vector3 RandomNavmeshLocation(float radius) {
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
+            finalPosition = hit.position;            
+        }
+        return finalPosition;
+    }
+    
+    private void AlignToGround()
     {
         var ray = new Ray(transform.position + Vector3.up, Vector3.down);
         if (!Physics.Raycast(ray, out var hit, Mathf.Infinity, _groundLayerMask)) return;
@@ -61,5 +90,17 @@ public class Enemy : MonoBehaviour
     private bool IsMoving()
     {
         return _agent.velocity.sqrMagnitude > 0;
+    }
+    
+    public void ChangeHealth()
+    {
+        model.DOKill();
+        model.DOPunchScale(PunchScale, PunchDuration);
+        CurrentHealth--;
+        if (CurrentHealth <= 0)
+        {
+            // todo play animation maybe lmao
+            Destroy(gameObject);
+        }
     }
 }

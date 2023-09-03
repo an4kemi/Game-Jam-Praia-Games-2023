@@ -65,7 +65,7 @@ public class DrinkPotion : MonoBehaviour
                             liquid.fillAmount = value;
                         }).SetId(DRINK_FILL_ID).SetEase(drinkEase).OnComplete(() =>
                     {
-                        bottle.transform.DOLocalMove(moveFrom, moveSpeed * 2).SetId(DRINK_MOVE_ID);
+                        bottle.transform.DOLocalMove(moveFrom, moveSpeed * .5f).SetId(DRINK_MOVE_ID);
                         IsDrinking = false;
                     });
                 });
