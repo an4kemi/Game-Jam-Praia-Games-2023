@@ -10,17 +10,22 @@ public class Door : MonoBehaviour
 
     [SerializeField] private MeshRenderer[] _renderers;
 
+    [SerializeField]
     private bool isOpen;
 
     [SerializeField] private GameObject[] _hints; 
     
     private void Awake()
     {
-        isOpen = false;
         _close = transform.localRotation.eulerAngles;
         foreach (var renderer in _renderers)
         {
             renderer.material = _setting.Material;
+        }
+
+        if (isOpen)
+        {
+            Open();
         }
     }
 

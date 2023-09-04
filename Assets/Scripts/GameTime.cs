@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameTime : MonoBehaviour
@@ -7,35 +6,45 @@ public class GameTime : MonoBehaviour
     private float _dreamRadius;
     [SerializeField] private float _maxTime;
     [SerializeField] private float _time;
+    [SerializeField] private float _timeDecreaseSpeed;
 
-    [Header("Dream radius")] 
-    [SerializeField] private Material[] _materials;
+    [Header("Dream radius")] [SerializeField]
+    private Material[] _materials;
 
     [SerializeField] private float _radiusMin;
     [SerializeField] private float _radiusMax;
 
-    [SerializeField] private float _rationSpeed;
-    [SerializeField] private float _rationIntensity;
-
-    [Header("Foliage")] 
-    [SerializeField] private Material[] _foliages;
+    [Header("Foliage")] [SerializeField] private Material[] _foliages;
 
     [SerializeField] private Color _dreamColor;
     [SerializeField] private Color _nightmareColor;
 
-    [Header("Skybox")] 
-    private Camera _camera;
+    [Header("Skybox")] private Camera _camera;
     [SerializeField] private Color _bgDreamColor;
     [SerializeField] private Color _bgNightmareColor;
 
+    
     private void Awake()
     {
+        Application.targetFrameRate = 75;
         _camera = Camera.main;
     }
 
     private void Update()
     {
-        if (_time >= 0) _time -= Time.deltaTime;
+// #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            AddRadius(-10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Equals))
+        {
+            AddRadius(10);
+        }
+// #endif
+
+        if (_time >= 0) _time -= _timeDecreaseSpeed * Time.deltaTime;
 
         var timeLeft = _time / _maxTime;
         _dreamRadius = Mathf.Lerp(_radiusMin, _radiusMax, timeLeft);
@@ -49,7 +58,7 @@ public class GameTime : MonoBehaviour
         {
             foliage.SetColor("_TopColor", Color.Lerp(_nightmareColor, _dreamColor, timeLeft));
         }
-        
+
         _camera.backgroundColor = Color.Lerp(_bgNightmareColor, _bgDreamColor, timeLeft);
     }
 

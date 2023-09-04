@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Creepy Door
   m_EditorClassIdentifier: 
   Material: {fileID: 2100000, guid: e91b1d3597800b9469c955b74838c0c9, type: 2}
-  OpenSpeed: 0
-  CloseSpeed: 0
-  OpenEase: 0
-  CloseEase: 0
+  OpenSpeed: 2
+  CloseSpeed: 1.5
+  OpenEase: 1
+  CloseEase: 2

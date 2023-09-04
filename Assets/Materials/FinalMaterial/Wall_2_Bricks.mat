@@ -135,7 +135,7 @@ Material:
     - _Offset: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _Radius: 0
+    - _Radius: 8.296569
     - _ReceiveShadows: 1
     - _Rigidness: 10
     - _ScrollSpeed: 20
@@ -156,7 +156,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.042452812, g: 0.24332498, b: 1, a: 1}
+    - _Color: {r: 0.6415094, g: 0.23905304, b: 0.23905303, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _DisLineColor: {r: 1, g: 0.9048885, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
