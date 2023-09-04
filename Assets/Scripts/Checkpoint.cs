@@ -11,7 +11,9 @@ public class Checkpoint : MonoBehaviour
         var color = Color.green;
         color.a = .25f;
         Gizmos.color = color;
-        Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().size);
+        var position = transform.position;
+        Gizmos.DrawCube(position, GetComponent<BoxCollider>().size);
+        Gizmos.DrawSphere(position + (transform.forward * 3), .5f);
     }
 #endif
 }
