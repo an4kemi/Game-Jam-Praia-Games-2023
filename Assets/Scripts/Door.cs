@@ -18,9 +18,13 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         _close = transform.localRotation.eulerAngles;
-        foreach (var renderer in _renderers)
+
+        if (_renderers != null && _renderers.Length > 0)
         {
-            renderer.material = _setting.Material;
+            foreach (var renderer in _renderers)
+            {
+                renderer.material = _setting.Material;
+            }
         }
 
         if (isOpen)
@@ -39,6 +43,7 @@ public class Door : MonoBehaviour
 
     public void DisplayHints(bool display)
     {
+        if (_hints == null || _hints.Length == 0) return;
         foreach (var hint in _hints)
         {
             hint.SetActive(display);

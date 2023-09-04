@@ -90,7 +90,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 1
     - _Parallax: 0.02
-    - _Radius: 8.296569
+    - _Radius: 0
     - _Rigidness: 10
     - _ScrollSpeed: 20
     - _Shrink: 1

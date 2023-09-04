@@ -1,10 +1,17 @@
+using DefaultNamespace;
 using UnityEngine;
 
 public class CheckpointInteractor : MonoBehaviour
 {
+    private GameTime _gameTime;
     private Checkpoint _lastCheckpoint;
     private bool _isRespawning;
-    
+
+    private void Awake()
+    {
+        _gameTime = GetComponent<GameTime>();
+    }
+
 #if UNITY_EDITOR
     private void Update()
     {
@@ -33,6 +40,7 @@ public class CheckpointInteractor : MonoBehaviour
     {
         if (_lastCheckpoint == null) return;
         transform.position = _lastCheckpoint.transform.position;
+        _gameTime.Reset();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -43,6 +51,15 @@ public class CheckpointInteractor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            if (_gameTime.DreamRadius < GameConfig.AI_KILL_PLAYER_DREAM_RADIUS)
+            {
+                InvokeRespawn();
+                return;
+            }
+        }
+        
         if (!other.CompareTag("Checkpoint")) return;
         if (!other.TryGetComponent<Checkpoint>(out var checkpoint)) return;
         if (!checkpoint.IsTaken)

@@ -32,7 +32,7 @@ public class GameTime : MonoBehaviour
 
     private void Update()
     {
-// #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Minus))
         {
             AddRadius(-10);
@@ -42,13 +42,12 @@ public class GameTime : MonoBehaviour
         {
             AddRadius(10);
         }
-// #endif
+#endif
 
         if (_time >= 0) _time -= _timeDecreaseSpeed * Time.deltaTime;
 
         var timeLeft = _time / _maxTime;
         _dreamRadius = Mathf.Lerp(_radiusMin, _radiusMax, timeLeft);
-        // var ratio = Mathf.Abs(Mathf.Sin(Time.time * _rationSpeed)) / _rationIntensity;
         foreach (var material in _materials)
         {
             material.SetFloat("_Radius", _dreamRadius);
@@ -65,5 +64,10 @@ public class GameTime : MonoBehaviour
     public void AddRadius(float value)
     {
         _time = Mathf.Min(_time + value, _maxTime);
+    }
+
+    public void Reset()
+    {
+        _time = 0;
     }
 }

@@ -9,8 +9,8 @@
         public const float AI_CHASE_UPDATE_DELAY_MIN = 0.5f;
         public const float AI_CHASE_UPDATE_DELAY_MAX = 2.5f;
         public const float AI_CHASE_DREAM_RADIUS_IGNORE = 5;
-        public const float AI_CHASE_DREAM_DISTANCE_IGNORE = 15;
-        public const float AI_KILL_PLAYER_DISTANCE = 2;
+        public const float AI_CHASE_DREAM_DISTANCE_IGNORE = 9;
+        public const float AI_KILL_PLAYER_DREAM_RADIUS = 1;
         public const float DREAM_POTION_FILL_AMOUNT = 0.3f;
     }
 }
