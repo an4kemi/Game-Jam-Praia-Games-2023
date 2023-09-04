@@ -1,9 +1,7 @@
-using System;
 using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour

@@ -1,5 +1,6 @@
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 
 public class CheckpointInteractor : MonoBehaviour
 {
@@ -39,7 +40,10 @@ public class CheckpointInteractor : MonoBehaviour
     private void MoveToLastCheckpoint()
     {
         if (_lastCheckpoint == null) return;
-        transform.position = _lastCheckpoint.transform.position;
+        var target = _lastCheckpoint.transform;
+        transform.SetPositionAndRotation(target.position, target.rotation);
+        // transform.position = target.position;
+        // transform.rotation = target.rotation;
         _gameTime.Reset();
     }
 
