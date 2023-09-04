@@ -1,11 +1,25 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    #if UNITY_EDITOR
+    public MeshRenderer pictureRenderer;
+    private void OnValidate()
+    {
+        if (Type == PickupType.Drink) return;
+        if (Material != null)
+        {
+            pictureRenderer.material = Material;
+        }
+    }
+#endif
+    
     public PickupType Type;
 
     public float Multiplier;
+    public Material Material;
     
     public Transform View;
     public Vector3 ViewMoveTo;
@@ -28,4 +42,5 @@ public class Pickup : MonoBehaviour
 public enum PickupType
 {
     Drink,
+    Memory,
 }
